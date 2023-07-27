@@ -18,7 +18,9 @@ export default function App() {
   }, []);
 
   const deletePost = (slug) => {
-    api.deleteRecord(slug)
+    const isConfirm = confirm("Are you sure?");
+
+    if (isConfirm) api.deleteRecord(slug)
       .then(() => {
         window.location.href = window.location.pathname;
       });
